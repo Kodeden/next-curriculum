@@ -1,6 +1,5 @@
-import enhanceWithMDX from "@next/mdx";
-
-const withMDX = enhanceWithMDX();
+import createMDX from "@next/mdx";
+import remarkGfm from "remark-gfm";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -8,5 +7,14 @@ const nextConfig = {
   pageExtensions: ["mdx", "ts", "tsx"],
   // Optionally, add any other Next.js config below
 };
+
+const withMDX = createMDX({
+  experimental: {
+    mdxRs: true,
+  },
+  options: {
+    remarkPlugins: [remarkGfm],
+  },
+});
 
 export default withMDX(nextConfig);
