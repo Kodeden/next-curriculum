@@ -17,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} prose`}>{children}</body>
+      <body className={`${inter.className} prose mx-auto my-8`}>
+        {children}
+      </body>
     </html>
   );
 }
